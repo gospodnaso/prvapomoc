@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sneg</title>
+	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>KT9: OŽIVLJANJE</h1>
+	<p>Oglejte si prikaz oživljanja na <a href="https://www.facebook.com/watch/?v=3290141297706831">povezavi</a>. <br> <br>
+	<img src="{% static 'pp/images/ozivljanje1.png' %}" alt="ozivljanje1" width=450px>
+	<strong><p>Težko dejstvo: Pri utopljencih in otrocih začnemo s petimi vpihi, nato normalno nadlajujemo.</p></strong>
+	<p> Še nekaj pesmi, ki nam pomagajo ostati v ritmu med oživljanjem:</p>
+	<ul>
+		<li><a href="https://www.youtube.com/watch?v=ebcJZBNMKvY"> Bit</a></li>
+		<li><a href="https://www.youtube.com/watch?v=Sh1DUAt2a5s"> Plešem</a></li>
+		<li><a href="https://www.youtube.com/watch?v=Eh8UrfkSL8M"> Bognedaj, da bi crknu televizor</a></li>
+		<li><a href="https://www.youtube.com/watch?v=C24_drkqGPU"> Krokodilčki</a></li>
+		<li><a href="https://www.youtube.com/watch?v=COEUVNi0dnM"> Ostani z nami</a></li>
+	</ul>
+
+	<h2>NALOGA</h2>
+	<p>Odkljukaj vse, kar VELJA za temeljne postopke oživljanja (TPO) – poškodovanec leži na hrbtu in ne diha:</p>
+	<form action='' method='post'>
+	{% csrf_token %}
+	<ul style="list-style: none;">
+		<li><input type="checkbox" name="q1" {{ q1 }}><span style="background-color: {{ c1 }}">30:2</span></li>
+		<li><input type="checkbox" name="q2" {{ q2 }}><span style="background-color: {{ c2 }}">odkorakamo stran</span></li>
+		<li><input type="checkbox" name="q3" {{ q3 }}><span style="background-color: {{ c3 }}">poškodovancu dvignemo noge</span></li>
+		<li><input type="checkbox" name="q4" {{ q4 }}><span style="background-color: {{ c4 }}">5-6 cm globine</span></li>
+		<li><input type="checkbox" name="q5" {{ q5 }}><span style="background-color: {{ c5 }}">poškodovanca postavimo v stabilni bočni položaj</span></li>
+		<li><input type="checkbox" name="q6" {{ q6 }}><span style="background-color: {{ c6 }}">2 vpiha</span></li>
+		<li><input type="checkbox" name="q7" {{ q7 }}><span style="background-color: {{ c7 }}">pri utopljencih in otrocih začnemo s 5 vpihi</span></li>
+		<li><input type="checkbox" name="q8" {{ q8 }}><span style="background-color: {{ c8 }}">naredimo kompresijsko obvezo</span></li>
+		<li><input type="checkbox" name="q9" {{ q9 }}><span style="background-color: {{ c9 }}">pokličemo 112</span></li>
+		<li><input type="checkbox" name="q10" {{ q10 }}><span style="background-color: {{ c10 }}">poškodovanca sezujemo</span></li>
+		<li><input type="checkbox" name="q11" {{ q11 }}><span style="background-color: {{ c11 }}">pomagamo si z AED</span></li>
+		<li><input type="checkbox" name="q12" {{ q12 }}><span style="background-color: {{ c12 }}">prižgemo cigareto</span></li>
+	</ul>
+
+	<input type="submit" value="preveri">
+	</form>
+	<br>
+	<img src="{% static 'pp/images/ozivljanje2.png' %}" alt="ozivljanje2" width=450px>
+	<br>
+	<br>
+	<hr>
+	<form action="../gesla/" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="ime" value="{{ ime }}">
+		<input type="hidden" name="vod" value="{{ vod }}">
+		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+	</form>
+
+  </body>
+</html>

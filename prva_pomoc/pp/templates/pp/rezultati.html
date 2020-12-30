@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>mimobesede</title>
+	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+  </head>
+<body>
+
+<table>
+  <tr>
+    <th>vod</th>
+    <th>točke</th>
+  </tr>
+  <tr>
+    <td>severni jeleni</td>
+	<td>{{ t0 }}</td>
+  </tr>
+  <tr>
+    <td>sokoli</td>
+    <td>{{ t1 }}</td>
+  </tr>
+  <tr>
+    <td>morske kozice</td>
+    <td>{{ t2 }}</td>
+  </tr>
+  <tr>
+    <td>tigrasti črvi</td>
+    <td>{{ t3 }}</td>
+  </tr>
+  <tr>
+    <td>snežni leopardi</td>
+    <td>{{ t4 }}</td>
+  </tr>
+  <tr>
+    <td>lenivci</td>
+    <td>{{ t5 }}</td>
+  </tr>
+  <tr>
+    <td>pume</td>
+    <td>{{ t6 }}</td>
+  </tr>
+  <tr>
+    <td>morske kače</td>
+    <td>{{ t7 }}</td>
+  </tr>
+  <tr>
+    <td>zmaji</td>
+    <td>{{ t8 }}</td>
+  </tr>
+  <tr>
+    <td>volkodlaki</td>
+    <td>{{ t9 }}</td>
+  </tr>
+  <tr>
+    <td>veverce</td>
+    <td>{{ t10 }}</td>
+  </tr>
+  <tr>
+    <td>bogomolke</td>
+    <td>{{ t11 }}</td>
+  </tr>
+  <tr>
+    <td>sove</td>
+    <td>{{ t12 }}</td>
+  </tr>
+  <tr>
+    <td>škorpijoni</td>
+    <td>{{ t13 }}</td>
+  </tr>
+  <tr>
+    <td>pujsi</td>
+    <td>{{ t14 }}</td>
+  </tr>
+</table>
+	<br>
+	<hr>
+	<form action="../gesla/" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="ime" value="{{ ime }}">
+		<input type="hidden" name="vod" value="{{ vod }}">
+		<button href="../gesla" onclick="this.closest('form').submit();return false;"> NAZAJ </button>
+	</form>
+
+</body>
+</html>

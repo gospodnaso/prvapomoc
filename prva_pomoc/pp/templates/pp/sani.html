@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sani</title>
+	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>KT4: NEZAVEST</h1>
+	<p>Nezavest je stanje, ko se oseba ne zaveda sebe in okolice.</p>
+	<p>Vzrok nezavesti je motnja v delovanju možganov (kap, poškodba, mamila, alkohol, motnje v
+	delovanju srca, prenizek ali previsok krvni sladkor).</p>
+	<p><u>Osnovni postopki pri obravnavi motenj zavesti:</u></p>
+	<ol>
+		<li>Ostanemo mirni, zavarujemo kraj (poskrbimo za varnost – sebe in poškodovanca).</li>
+		<li>Poskušamo oceniti, kaj je privedlo do takega stanja, da ne povzročimo večjih poškodb ali poškodujemo sebe.</li>
+		<li>Osebo obrnemo v stabilni bočni položaj (položaj za nezavestnega).</li>
+		<li>Pokličemo nujno medicinsko pomoč.</li>
+	</ol>
+	<p><u>Položaj za nezavestnega ali stabilni bočni položaj:</u></p>
+		<img src="{% static 'pp/images/nezavesna.png' %}" alt="nezaVesna" width="500px" >
+
+	<h2>NALOGA</h2>
+	<p>Postavi se ali pa postavi nekoga v položaj za nezavestnega. Slikaj in pošlji na mail (<a href = "mailto: tinkara.kampjut@gmail.com?subject=prva pomoč - nezavest">tinkara.kampjut@gmail.com</a>).
+	<br>
+	<br>
+	<hr>
+	<form action="../gesla/" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="ime" value="{{ ime }}">
+		<input type="hidden" name="vod" value="{{ vod }}">
+		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+	</form>
+
+  </body>
+</html>

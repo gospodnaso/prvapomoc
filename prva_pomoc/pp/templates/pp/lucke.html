@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>lucke</title>
+	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>KT5: ZVIN in IMOBILIZACIJA</h1>
+	<h2> ZVIN </h2>
+	<p>Zvin in izpah sta poškodbi sklepov, zlom pa poškodba kosti. V predelu poškodbe nastane oteklina in velikokrat tudi modrica. <p>
+	<p>Poškodovani ud imobiliziramo - pritrdimo sklepa nad in pod poškodbo tako, da se ne moreta
+		premikati. Na bolečem delu hladimo z ledom preko brisače ali povoja. Poškodovani ud dvignemo.</p>
+			<img src="{% static 'pp/images/zvin1.png' %}" alt="zvin" width=400px>      <img src="{% static 'pp/images/zvin2.png' %}" alt="zvon" width=400px>
+	<h2> IMOBILIZACIJA </h2>
+	<p>Imobilizacijo izvedemo pri zlomih, zvinih ter izpahih.</p>
+	<p><u>Naloge in koristi imobilizacije:</u></p>
+	<ul>
+		<li>Ublaži bolečine,</li>
+		<li>pri zlomu preprečuje, da bi odlomek kosti predrl kožo (nastanek odprtega zloma) ali poškodoval tkivo okrog zloma,</li>
+		<li>pri odprtem zlomu zmanjšuje možnosti za razvoj in širjenje okužbe.</li>
+	</ul>
+	<img src="{% static 'pp/images/imobilizacija1.png' %}" alt="imobilizacija" width=400px>      <img src="{% static 'pp/images/imobilizacija2.png' %}" alt="imobilizacija2" width=400px>
+
+	<h2>NALOGA</h2>
+	<p>Kaj velja za zvin in kaj za imobilizacijo?</p>
+		<form action="" method="post">
+		{% csrf_token %}
+		V predelu poškodbe nastane oteklina in velikokrat tudi modrica.
+		<input type="radio" id="zvin" name="ting1" value="zvin" {{ q1 }}>
+		  <label for="zvin" STYLE="background-color:{{ c1 }}">zvin</label>
+		  <input type="radio" id="imobilizacija" name="ting1" value="imobilizacija" {{ q2 }}>
+		  <label for="imobilizacija" STYLE="background-color:{{ c2 }}"> imobilizacija</label>
+		<br>
+		<br>
+		Ublaži bolečine.
+		<input type="radio" id="zvin" name="ting2" value="zvin" {{ q3 }}>
+		  <label for="zvin" STYLE="background-color:{{ c3 }}">zvin</label>
+		  <input type="radio" id="imobilizacija" name="ting2" value="imobilizacija" {{ q4 }}>
+		  <label for="imobilizacija" STYLE="background-color:{{ c4 }}">imobilizacija</label>
+		<br>
+		<br>
+		<input type="submit" value="preveri">
+		</form>
+	<br>
+	<hr>
+	<form action="../gesla/" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="ime" value="{{ ime }}">
+		<input type="hidden" name="vod" value="{{ vod }}">
+		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+	</form>
+
+  </body>
+</html>

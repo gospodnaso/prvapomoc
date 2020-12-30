@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jelencek</title>
+	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>KT3: PRISTOP</h1>
+	<p> 
+	Najprej poskrbimo za varnost sebe in poškodovanca. Odstranimo nevarne predmete in do
+	poškodovanca pristopimo s sprednje strani, da poškodovanec ne bo obračal glave (zaradi možnosti
+	poškodbe hrbtenice). Poškodovanca ogovorimo (Ali ste v redu?, Vam lahko pomagam?) in ga
+	primemo za ramena. Tako ugotovimo, ali je pri zavesti ali ne.
+	</p>
+	<p> 
+	Če se ne odzove, preverimo, ali diha. Glavo mu nagnemo nazaj (tako odpremo dihalne poti) in
+	pogledamo, če se prsni koš dviguje in spušča, z licem pa čutimo, ali diha. Nezavestnega, ki diha,
+	postavimo v položaj za nezavestnega (stabilen bočni položaj) in pregledamo, ali ima še kakšno drugo
+	poškodbo. Kličemo 112. V primeru, da nezavestni ne diha, začnemo izvajati temeljne postopke
+	oživljanja (TPO). Nekomu od ostalih prisotnih naročimo, naj steče po AED in pokliče 112.
+	</p>
+
+	<img src="{% static 'pp/images/pristop.png' %}" alt="pristop" width="550px">
+
+
+    <h2>NALOGA</h2>
+	<p>Vstavi pravilno ali pa dopolni z eno besedo:</p>
+	<form action="" method="post">
+	{% csrf_token %}
+	<p>Na kraju nesreče najprej poskrbimo za <input id="q1" type="text" name="q1" size="9" STYLE="background-color:{{ c1 }}" value="{{ q1 }}"> (varnost/poškodovanca). Do poškodovanca pristopimo s <input id="q2" type="text" name="q2" size="6" STYLE="background-color:{{ c2 }}" value="{{ q2 }}"> strani. Ga <input id="q3" type="text" name="q3" size="6" STYLE="background-color:{{ c3 }}" value="{{ q3 }}"> (oskrbimo/ogovorimo) in ga primemo za ramena ter vprašamo, če mu lahko pomagamo. Tako ugotovimo, ali je pri <input id="q4" type="text" name="q4" size="4" STYLE="background-color:{{ c4 }}" value="{{ q4 }}">.</p>
+	<input type="submit" value="preveri">
+	</form>
+	<br>
+	<br>
+	<hr>
+	<form action="../gesla/" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="ime" value="{{ ime }}">
+		<input type="hidden" name="vod" value="{{ vod }}">
+		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+	</form>
+
+  </body>
+</html>

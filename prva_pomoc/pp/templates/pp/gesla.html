@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>mimobesede</title>
+	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+	  <p>ime: <u>{{ ime }}</u>
+	  <br>vod: <u>{{ vod }}</u></p>
+	<form action="/pp/gesla/" method="post">
+		{% csrf_token %}
+		{{ form_geslo }} 
+		<input type="hidden" name="ime" value="{{ ime }}">
+		<input type="hidden" name="vod" value="{{ vod }}">
+   		<input type="submit" value="požen">
+	</form>
+
+	<p>Zdravo, {{ ime }}!</p>
+	<p>Navodila so preprosta. Na spodnjih lokacijah po Ljubljani se nahajajo AED-ji, na njih (ali nekje v njihovi bližini) pa so gesla, ki jih vpišeš v zgornje okence in klikneš "požen". Stran te bo peljala do besedila in naloge, povezanih s prvo pomočjo. Ko nalogo rešiš, bo ocenjena in prispevala k skupnemu seštevku tvojega voda. Zmagovalni vod čaka nagrada.</p>
+	<img src="{% static 'pp/images/index1.jpg' %}" alt="slikca" width=350px>
+	<p><strong>Pozor! Achtung! Attenzione!</strong><br>
+	Pri vsaki nalogi se upošteva prvi rezultat. Stran ti omogoča, da popraviš svoje napake in ponovno preveriš rezultate, a za končni seštevek se bo upoštevala le prva rešitev.</p>
+	</p>
+	<p> KT-je lahko obiskuješ v poljubnem vrstnem redu.</p>
+	<p> Trenutne rezultate lahko najdeš na tej <a href = "../rezultati">povezavi</a>.</p>
+	<p> Morebitna vprašanja naslovite na <a href = "mailto: tinkara.kampjut@gmail.com?subject=morebitna vprašanja">tinkara.kampjut@gmail.com</a>.</p>
+	<p>Srečno!</p>
+
+	<img src="{% static 'pp/images/kt1.jpg' %}" alt="kt1" width=200px>
+	<img src="{% static 'pp/images/kt2.jpg' %}" alt="kt2" width=200px>
+	<img src="{% static 'pp/images/kt3.jpg' %}" alt="kt3" width=200px>
+	<img src="{% static 'pp/images/kt4.jpg' %}" alt="kt4" width=200px>
+	<img src="{% static 'pp/images/kt5.jpg' %}" alt="kt5" width=200px>
+	<img src="{% static 'pp/images/kt6.jpg' %}" alt="kt6" width=200px>
+	<img src="{% static 'pp/images/kt7.jpg' %}" alt="kt7" width=200px>
+	<img src="{% static 'pp/images/kt8.jpg' %}" alt="kt8" width=200px>
+	<img src="{% static 'pp/images/kt9.jpg' %}" alt="kt9" width=200px>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>snezena_kepa</title>
+	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>KT7: NOSILA IZ ŠOTORKE</h1>
+	<p>Eden izmed načinov transporta poškodovane osebe je s pomočjo nosil iz šotorke.<p>
+	<p>Nosila zgradimo iz dveh nosilnih palic (dolgih približno dva metra) in iz šotorke. Šotorko raztegnemo
+	na tla in jo skoraj v polovici prepognemo. V pregib vstavimo eno palico, drugo pa položimo približno
+	20 cm od drugega roba šotorke. Stranici zavihamo proti sredini.</p> 
+	<img src="{% static 'pp/images/nosila2.png' %}" alt="nosila1" width=380px>     <img src="{% static 'pp/images/nosila1.png' %}" alt="nosila2" width=380px>
+	
+	<h2>NALOGA</h2>
+	<form action = '' method = 'post'>
+	{% csrf_token %}
+	<p>Razmisli in napiši vsaj eno stvar, ki jo za izdelavo nosil lahko uporabimo namesto šotorke. Torej, naredimo nosila, a ne s pomočjo šotorke, temveč s pomočjo <input id="frage" type="text" name="frage" size="12" STYLE="background-color:{{ c1 }}" value="{{ frage }}">. </p>
+	<p>Ta naloga ne bo ocenjena zdaj, ampak kasneje. Če bo tvoj vnos uspešno zabeležen, se bo okvirček pobarval vijolično.</p>
+	<input type="submit" value="pošlji">
+	</form>
+	<br>
+	<hr>
+	<form action="../gesla/" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="ime" value="{{ ime }}">
+		<input type="hidden" name="vod" value="{{ vod }}">
+		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+	</form>
+
+  </body>
+</html>

@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>mraz</title>
+	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>KT8: KAJ JE V PRVI POMOČI</h1>
+	<ul>
+		<li>prvi povoj (povoj z všito gazo)</li>
+		<li>sterilna gaza</li>
+		<li>elastičen povoj (povoj iz raztegljive tkanine)</li>
+		<li>trikotna ruta</li>
+		<li>zaščitna folija za umetno dihanje</li>
+		<li>škarje z zaobljeno konico</li>
+		<li>obliži (različne velikosti)</li>
+		<li>pinceta</li>
+		<li>reševalna ali metalizirana folija (srebrno-zlata)</li>
+		<li>zaščitne rokavice</li>
+		<li>aluplast za opekline</li>
+	</ul>
+
+	<img src="{% static 'pp/images/prva_pomoc1.jpg' %}" alt="mumija" width=400px>
+
+	<h2>NALOGA</h2>
+	<p> Odkjukaj vse, česar NI v prvi pomoči: </p>
+	<form action="" method="POST">
+	{% csrf_token %}
+	<ul style="list-style: none;">
+		<li><input type="checkbox" name="q1" {{ q1 }}><span style="background-color: {{ c1 }}">pinceta </span></li>
+		<li><input type="checkbox" name="q2" {{ q2 }}><span style="background-color: {{ c2 }}">obliži</span></li>
+		<li><input type="checkbox" name="q3" {{ q3 }}><span style="background-color: {{ c3 }}">tehtnica</span></li>
+		<li><input type="checkbox" name="q4" {{ q4 }}><span style="background-color: {{ c4 }}">zaščitne rokavice</span></li>
+		<li><input type="checkbox" name="q5" {{ q5 }}><span style="background-color: {{ c5 }}">sterilna gaza</span></li>
+		<li><input type="checkbox" name="q6" {{ q6 }}><span style="background-color: {{ c6 }}">metalizirana folija</span></li>
+		<li><input type="checkbox" name="q7" {{ q7 }}><span style="background-color: {{ c7 }}">opornica</span></li>
+		<li><input type="checkbox" name="q8" {{ q8 }}><span style="background-color: {{ c8 }}">aluplast</span></li>
+		<li><input type="checkbox" name="q9" {{ q9 }}><span style="background-color: {{ c9 }}">razkužilo</span></li>
+		<li><input type="checkbox" name="q10" {{ q10 }}><span style="background-color: {{ c10 }}">prvi povoj</span></li>
+		<li><input type="checkbox" name="q11" {{ q11 }}><span style="background-color: {{ c11 }}">stetoskop</span></li>
+		<li><input type="checkbox" name="q12" {{ q12 }}><span style="background-color: {{ c12 }}">termometer</span></li>
+		<li><input type="checkbox" name="q13" {{ q13 }}><span style="background-color: {{ c13 }}">elastičen povoj</span></li>
+		<li><input type="checkbox" name="q14" {{ q14 }}><span style="background-color: {{ c14 }}">ventolin</span></li>
+		<li><input type="checkbox" name="q15" {{ q15 }}><span style="background-color: {{ c15 }}">claritine</span></li>
+		<li><input type="checkbox" name="q16" {{ q16 }}><span style="background-color: {{ c16 }}">elastike za lase</span></li>
+		<li><input type="checkbox" name="q17" {{ q17 }}><span style="background-color: {{ c17 }}">zaščitna folija za umetno dihanje</span></li>
+		<li><input type="checkbox" name="q18" {{ q18 }}><span style="background-color: {{ c18 }}">energijska ploščica</span></li>
+		<li><input type="checkbox" name="q19" {{ q19 }}><span style="background-color: {{ c19 }}">trikotna ruta</span></li>
+		<li><input type="checkbox" name="q20" {{ q20 }}><span style="background-color: {{ c20 }}">leče</span></li>
+	</ul>
+
+	<input type="submit" value="preveri">
+	</form>
+
+	<img src="{% static 'pp/images/prva_pomoc2.png' %}" alt="ruzak" width=400px>
+	<br>
+	<br>
+	<hr>
+	<form action="../gesla/" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="ime" value="{{ ime }}">
+		<input type="hidden" name="vod" value="{{ vod }}">
+		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+	</form>
+
+	
+  </body>
+</html>
