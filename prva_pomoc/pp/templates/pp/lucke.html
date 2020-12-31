@@ -4,16 +4,17 @@
 <html>
   <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>lucke</title>
 	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body>
+  <body style="font-size:3vw">
     <h1>KT5: ZVIN in IMOBILIZACIJA</h1>
 	<h2> ZVIN </h2>
 	<p>Zvin in izpah sta poškodbi sklepov, zlom pa poškodba kosti. V predelu poškodbe nastane oteklina in velikokrat tudi modrica. <p>
 	<p>Poškodovani ud imobiliziramo - pritrdimo sklepa nad in pod poškodbo tako, da se ne moreta
 		premikati. Na bolečem delu hladimo z ledom preko brisače ali povoja. Poškodovani ud dvignemo.</p>
-			<img src="{% static 'pp/images/zvin1.png' %}" alt="zvin" width=400px>      <img src="{% static 'pp/images/zvin2.png' %}" alt="zvon" width=400px>
+		<img src="{% static 'pp/images/zvin1.png' %}" alt="zvin" style="width:48%"> <img src="{% static 'pp/images/zvin2.png' %}" alt="zvon" style="width:48%">
 	<h2> IMOBILIZACIJA </h2>
 	<p>Imobilizacijo izvedemo pri zlomih, zvinih ter izpahih.</p>
 	<p><u>Naloge in koristi imobilizacije:</u></p>
@@ -22,7 +23,7 @@
 		<li>pri zlomu preprečuje, da bi odlomek kosti predrl kožo (nastanek odprtega zloma) ali poškodoval tkivo okrog zloma,</li>
 		<li>pri odprtem zlomu zmanjšuje možnosti za razvoj in širjenje okužbe.</li>
 	</ul>
-	<img src="{% static 'pp/images/imobilizacija1.png' %}" alt="imobilizacija" width=400px>      <img src="{% static 'pp/images/imobilizacija2.png' %}" alt="imobilizacija2" width=400px>
+	<img src="{% static 'pp/images/imobilizacija1.png' %}" alt="imobilizacija" style="width:48%">      <img src="{% static 'pp/images/imobilizacija2.png' %}" alt="imobilizacija2" style="width:48%">
 
 	<h2>NALOGA</h2>
 	<p>Kaj velja za zvin in kaj za imobilizacijo?</p>
@@ -42,7 +43,7 @@
 		  <label for="imobilizacija" STYLE="background-color:{{ c4 }}">imobilizacija</label>
 		<br>
 		<br>
-		<input type="submit" value="preveri">
+		<input type="submit" value="preveri" style="width:25%;height:35px">
 		</form>
 	<br>
 	<hr>
@@ -50,7 +51,7 @@
 		{% csrf_token %}
 		<input type="hidden" name="ime" value="{{ ime }}">
 		<input type="hidden" name="vod" value="{{ vod }}">
-		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+		<button href="../gesla" onclick="this.closest('form').submit();return false;" style="width:30%;height:40px"> NAZAJ </button>
 	</form>
 
   </body>

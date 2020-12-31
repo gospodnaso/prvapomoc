@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>sneg</title>
 	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body>
+  <body style="font-size:3vw">
     <h1>KT9: OŽIVLJANJE</h1>
 	<p>Oglejte si prikaz oživljanja na <a href="https://www.facebook.com/watch/?v=3290141297706831">povezavi</a>. <br> <br>
-	<img src="{% static 'pp/images/ozivljanje1.png' %}" alt="ozivljanje1" width=450px>
+	<img src="{% static 'pp/images/ozivljanje1.png' %}" alt="ozivljanje1" style="width:100%">
 	<strong><p>Težko dejstvo: Pri utopljencih in otrocih začnemo s petimi vpihi, nato normalno nadlajujemo.</p></strong>
 	<p> Še nekaj pesmi, ki nam pomagajo ostati v ritmu med oživljanjem:</p>
 	<ul>
@@ -40,10 +41,10 @@
 		<li><input type="checkbox" name="q12" {{ q12 }}><span style="background-color: {{ c12 }}">prižgemo cigareto</span></li>
 	</ul>
 
-	<input type="submit" value="preveri">
+	<input type="submit" value="preveri" style="width:25%;height:35px">
 	</form>
 	<br>
-	<img src="{% static 'pp/images/ozivljanje2.png' %}" alt="ozivljanje2" width=450px>
+	<img src="{% static 'pp/images/ozivljanje2.png' %}" alt="ozivljanje2" style="width:100%">
 	<br>
 	<br>
 	<hr>
@@ -51,7 +52,7 @@
 		{% csrf_token %}
 		<input type="hidden" name="ime" value="{{ ime }}">
 		<input type="hidden" name="vod" value="{{ vod }}">
-		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+		<button href="../gesla" onclick="this.closest('form').submit();return false;" style="width:30%;height:40px"> NAZAJ </button>
 	</form>
 
   </body>

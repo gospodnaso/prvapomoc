@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>jelencek</title>
 	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body>
+  <body style="font-size:3vw">
     <h1>KT3: PRISTOP</h1>
 	<p> 
 	Najprej poskrbimo za varnost sebe in poškodovanca. Odstranimo nevarne predmete in do
@@ -23,7 +24,7 @@
 	oživljanja (TPO). Nekomu od ostalih prisotnih naročimo, naj steče po AED in pokliče 112.
 	</p>
 
-	<img src="{% static 'pp/images/pristop.png' %}" alt="pristop" width="550px">
+	<img src="{% static 'pp/images/pristop.png' %}" alt="pristop" style="width:100%">
 
 
     <h2>NALOGA</h2>
@@ -31,16 +32,15 @@
 	<form action="" method="post">
 	{% csrf_token %}
 	<p>Na kraju nesreče najprej poskrbimo za <input id="q1" type="text" name="q1" size="9" STYLE="background-color:{{ c1 }}" value="{{ q1 }}"> (varnost/poškodovanca). Do poškodovanca pristopimo s <input id="q2" type="text" name="q2" size="6" STYLE="background-color:{{ c2 }}" value="{{ q2 }}"> strani. Ga <input id="q3" type="text" name="q3" size="6" STYLE="background-color:{{ c3 }}" value="{{ q3 }}"> (oskrbimo/ogovorimo) in ga primemo za ramena ter vprašamo, če mu lahko pomagamo. Tako ugotovimo, ali je pri <input id="q4" type="text" name="q4" size="4" STYLE="background-color:{{ c4 }}" value="{{ q4 }}">.</p>
-	<input type="submit" value="preveri">
+	<input type="submit" value="preveri" style="width:25%;height:35px">
 	</form>
-	<br>
 	<br>
 	<hr>
 	<form action="../gesla/" method="post">
 		{% csrf_token %}
 		<input type="hidden" name="ime" value="{{ ime }}">
 		<input type="hidden" name="vod" value="{{ vod }}">
-		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+		<button href="../gesla" onclick="this.closest('form').submit();return false;" style="width:30%;height:40px"> NAZAJ </button>
 	</form>
 
   </body>

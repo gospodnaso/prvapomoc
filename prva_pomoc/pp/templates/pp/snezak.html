@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>snezak</title>
 	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body>
+  <body style="font-size:3vw">
     <h1>KT2: KLIC 112</h1>
 	<p><i>Na številko <strong>112</strong> pokličemo v primeru nesreče oziroma zvečane nevarnosti za nesreče in v primeru, da
 		potrebujemo kakršnokoli pomoč.</i></p>
@@ -23,7 +24,7 @@
 		<li>Kakšne so okoliščine na kraju nesreče? (npr. prisotne so nevarne snovi, požar, visok sneg, sevanje …)</li>
 		<li>Kakšno pomoč potrebujemo? (npr. pomoč zdravnika, gasilcev, veterinarjev, pomoč gorske reševalne enote …)</li>
 	</ul>
-	<img src="{% static 'pp/images/klic1.jpg' %}" alt="klic" width=500px>
+	<img src="{% static 'pp/images/klic1.jpg' %}" alt="klic" style="width:100%">
 	<p> Ko kličemo, podatke posredujemo čim bolj zbrano in mirno. <strong>Nikoli ne prekinemo telefonske zveze</strong>,
 	saj bo dispečer (zdravstveni tehnik/zdravnik) na drugi strani telefona povprašal še po kakšnih drugih
 	pomembnih informacijah. Poškodovanca <strong>nikoli ne zapustimo</strong> (naj bo ena oseba vedno pri oboleli
@@ -40,10 +41,10 @@
 	<form action="" method="post">
 		{% csrf_token %}
 		<p>V primeru, da potrebujemo nujno medicinsko pomoč (NMP) pokličemo na številko  <input id="q1" type="text" name="q1" size="1" STYLE="background-color:{{ c1 }}" value="{{ q1 }}">. Ko kličemo, podatke posredujemo čim bolj zbrano in mirno. <input id="q2" type="text" name="q2" size="4" value="{{ q2 }}" STYLE="background-color:{{ c2 }}"> ne prekinemo telefonske zveze in nikoli ne <input id="q3" type="text" name="q3" size="6" value="{{ q3 }}" STYLE="background-color:{{ c3 }}"> poškodovanca.</p>
-	<input type="submit" value="preveri">
+	<input type="submit" value="preveri" style="width:25%;height:35px">
 	</form>
 	<br>
-	<img src="{% static 'pp/images/klic2.png' %}" alt="klic" width=320px>
+	<img src="{% static 'pp/images/klic2.png' %}" alt="klic" style="width:100%">
 	<br>
 	<br>
 	<hr>
@@ -51,7 +52,7 @@
 		{% csrf_token %}
 		<input type="hidden" name="ime" value="{{ ime }}">
 		<input type="hidden" name="vod" value="{{ vod }}">
-		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+		<button href="../gesla" onclick="this.closest('form').submit();return false;" style="width:30%;height:40px"> NAZAJ </button>
 	</form>
   </body>
 </html>

@@ -19,13 +19,13 @@ def gesla(request):
         else:
             return HttpResponseRedirect('/pp/')
             
+        sporocilo = get_messages(request)
+        for s in sporocilo:
+            pass
         form_geslo = GesloForm(request.POST)
+        messages.add_message(request, messages.INFO, ime)
+        messages.add_message(request, messages.INFO, vod)
         if form_geslo.is_valid():
-            sporocilo = get_messages(request)
-            for s in sporocilo:
-                pass
-            messages.add_message(request, messages.INFO, ime)
-            messages.add_message(request, messages.INFO, vod)
             return HttpResponseRedirect('/pp/'+(request.POST.get('geslo')).lower())
         else:
             form_geslo = GesloForm()
@@ -179,25 +179,25 @@ def lucke(request):
         if(ting1 != '' or ting2 != ''):
             if(ting1 == "zvin"):
                 context["c1"] = "#99ff99"
-                context["c2"] = "#ffffff"
+                context["c2"] = "#ffb3b3"
                 context["q1"] = "checked=''"
                 context["q2"] = ''
                 out += 1
             else:
-                context["c1"] = "#ff5050"
-                context["c2"] = "#ffffff"
+                context["c1"] = "#ffb3b3"
+                context["c2"] = "#ff5050"
                 if(ting1):
                     context["q2"] = "checked=''"
                 context["q1"] = ''
             if(ting2 == "imobilizacija"):
-                context["c3"] = "#ffffff"
+                context["c3"] = "#ffb3b3"
                 context["c4"] = "#99ff99"
                 context["q3"] = ''
                 context["q4"] = "checked=''"
                 out += 1
             else:
                 context["c3"] = "#ff5050"
-                context["c4"] = "#ffffff"
+                context["c4"] = "#ffb3b3"
                 if(ting2):
                     context["q3"] = "checked=''"
                 context["q4"] = ''

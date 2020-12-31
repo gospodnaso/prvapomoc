@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>snezinka</title>
 	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body>
+  <body style="font-size:3vw">
 	<h1>KT1: AED</h1>
     <p>
 	AED ali avtomatski eksterni defibrilator je prenosna elektronska naprava, ki jo uporabimo vedno, ko
@@ -16,13 +17,13 @@
 	uporabi električni sunek, je uporaba povsem varna! Ob vklopu začne defibrilator podajati jasna
 	glasovna navodila, ki jim sledite.
 	</p>
-	<p>Prikaz oživljanja in uporaba AED-ja:
+	<p>Prikaz oživljanja in uporabe AED-ja:
 	<a href="https://www.youtube.com/watch?v=Jo6Gr8rlAjo"> video</a></li>
 	</p>
-	<img src="{% static 'pp/images/aed.jpg' %}" alt="AED" width=400px>
+	<img src="{% static 'pp/images/aed.jpg' %}" alt="AED" style="width:100%">
 
 	<h2>NALOGA</h2>
-	<p> Slikaj se pri najbližjem AED-ju tvojega doma. Najdi ga na tej <a href="https://aed-baza.si/"> povezavi </a>). Sliko pošlji na mail (<a href = "mailto: tinkara.kampjut@gmail.com?subject=prva pomoč - aed">tinkara.kampjut@gmail.com</a>). <strong><br>Pozor! Achtung! Attenzione!</strong> Kreativnost in zabavnost prinašata dodatne točke.
+	<p> Slikaj se pri najbližjem AED-ju tvojega doma. Najdi ga na tej <a href="https://aed-baza.si/"> povezavi </a>. Sliko pošlji na mail (<a href = "mailto: tinkara.kampjut@gmail.com?subject=prva pomoč - aed">tinkara.kampjut@gmail.com</a>). <strong><br>Pozor! Achtung! Attenzione!</strong> Kreativnost in zabavnost prinašata dodatne točke.
 	<br>
 	<br>
 	<hr>
@@ -30,9 +31,7 @@
 		{% csrf_token %}
 		<input type="hidden" name="ime" value="{{ ime }}">
 		<input type="hidden" name="vod" value="{{ vod }}">
-		<button href="../gesla" onclick="this.closest('form').submit();return false;"> NAZAJ </button>
+		<button href="../gesla" onclick="this.closest('form').submit();return false;" style="width:30%;height:40px"> NAZAJ </button>
 	</form>
-
-
   </body>
 </html>

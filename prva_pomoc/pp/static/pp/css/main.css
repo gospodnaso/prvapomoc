@@ -3,6 +3,7 @@ body {
  padding: 10px;
  background-color: #ffb3b3;
  align: center;
+ margin-bottom:50px;
 }
 
 table {
@@ -26,4 +27,8 @@ th {
   text-align: left;
   padding: 8px;
   background-color: #ff5050;
+}
+
+hr {
+  margin-bottom: 20px;
 }

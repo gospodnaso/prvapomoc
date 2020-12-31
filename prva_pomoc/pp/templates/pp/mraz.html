@@ -3,10 +3,11 @@
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>mraz</title>
 	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body>
+  <body style="font-size:3vw">
     <h1>KT8: KAJ JE V PRVI POMOČI</h1>
 	<ul>
 		<li>prvi povoj (povoj z všito gazo)</li>
@@ -22,7 +23,7 @@
 		<li>aluplast za opekline</li>
 	</ul>
 
-	<img src="{% static 'pp/images/prva_pomoc1.jpg' %}" alt="mumija" width=400px>
+	<img src="{% static 'pp/images/prva_pomoc1.jpg' %}" alt="mumija" style="width:100%">
 
 	<h2>NALOGA</h2>
 	<p> Odkjukaj vse, česar NI v prvi pomoči: </p>
@@ -51,10 +52,11 @@
 		<li><input type="checkbox" name="q20" {{ q20 }}><span style="background-color: {{ c20 }}">leče</span></li>
 	</ul>
 
-	<input type="submit" value="preveri">
+	<input type="submit" value="preveri" style="width:25%;height:35px">
 	</form>
 
-	<img src="{% static 'pp/images/prva_pomoc2.png' %}" alt="ruzak" width=400px>
+	<br>
+	<img src="{% static 'pp/images/prva_pomoc2.png' %}" alt="ruzak" style="width:100%">
 	<br>
 	<br>
 	<hr>
@@ -62,7 +64,7 @@
 		{% csrf_token %}
 		<input type="hidden" name="ime" value="{{ ime }}">
 		<input type="hidden" name="vod" value="{{ vod }}">
-		<button href="../gesla" onclick="this.closest('form').submit();return false;">NAZAJ</button>
+		<button href="../gesla" onclick="this.closest('form').submit();return false;" style="width:30%;height:40px"> NAZAJ </button>
 	</form>
 
 	
