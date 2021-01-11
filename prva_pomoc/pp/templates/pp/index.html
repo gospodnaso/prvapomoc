@@ -6,10 +6,11 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>hlodv</title>
-	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+	<link href="{% static 'pp/css/brane.css' %}" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body style="font-size:3vw">
+  <body>
 	<p >Dobrodošel/dobrodošla na akciji <strong>OD SRCA DO SRCA</strong>!
+	<br>
 	<br>Da začneš, vpiši svoje ime in izberi vod.</p>
 	<form action="gesla/" method="post">
 		{% csrf_token %}
@@ -19,6 +20,6 @@
 	</form>
 
 	<br>
-	<img src="{% static 'pp/images/index.jpg' %}" alt="ta mood ko si zloms roko" style="width:100%">
+	<img src="{% static 'pp/images/index.jpg' %}" alt="ta mood ko si zloms roko" style="max-width:100%">
   </body>
 </html>

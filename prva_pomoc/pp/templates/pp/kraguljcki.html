@@ -6,9 +6,9 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>kraguljcki</title>
-	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+	<link href="{% static 'pp/css/brane.css' %}" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body style="font-size:3vw">
+  <body>
     <h1>KT6: KOMPRESIJSKA OBVEZA</h1>
 	<p>Kompresijska obveza je obveza, ki tesno pritiska na rano in mesto krvavitve. Z njo zaustavljamo skoraj
 	vse krvavitve na glavi, trupu in udih (rokah in nogah). <p>
@@ -23,20 +23,20 @@
 		vsake 5-10 min. Če obveza pušča, kar čeznjo namestimo še kak predmet in z dodatnim povojem močneje povijemo.</li>
 	</ol>
 
-	<img src="{% static 'pp/images/kompresijska.png' %}" alt="kompresijska" style="width:100%">
+	<img src="{% static 'pp/images/kompresijska.png' %}" alt="kompresijska" style="max-width:100%">
 
 	<h2>NALOGA</h2>
 		<p> Vpiši pravilni vrstni red:</p>
 		<form action='' method='POST'>
 		{% csrf_token %}
 		<ul style="list-style: none;">
-			<li><input id="q1" type="text" name="q1" size="1" STYLE="background-color:{{ c1 }}" value="{{ q1 }}">Sterilno pokrijemo rano.</li>
-			<li><input id="q2" type="text" name="q2" size="1" STYLE="background-color:{{ c2 }}" value="{{ q2 }}">Preverjamo barvo uda in pulz, da vidimo, ali se kri še normalno pretaka po žilah uda.</li>
-			<li><input id="q3" type="text" name="q3" size="1" STYLE="background-color:{{ c3 }}" value="{{ q3 }}">Imobiliziramo ud. Pri vseh huje krvavečih ranah je potrebno kompresijsko obvezo preveriti na
+			<li><input id="q1" type="text" name="q1" size="1" STYLE="background-color:{{ c1 }}" value="{{ q1 }}"> Sterilno pokrijemo rano.</li>
+			<li><input id="q2" type="text" name="q2" size="1" STYLE="background-color:{{ c2 }}" value="{{ q2 }}"> Preverjamo barvo uda in pulz, da vidimo, ali se kri še normalno pretaka po žilah uda.</li>
+			<li><input id="q3" type="text" name="q3" size="1" STYLE="background-color:{{ c3 }}" value="{{ q3 }}"> Imobiliziramo ud. Pri vseh huje krvavečih ranah je potrebno kompresijsko obvezo preveriti na
 			vsake 5-10 min. Če obveza pušča, kar čeznjo namestimo še kak predmet in z dodatnim
 			povojem močneje povijemo.</li>
-			<li><input id="q4" type="text" name="q4" size="1" STYLE="background-color:{{ c4 }}" value="{{ q4 }}">S povojem obvežemo predmet in gazo na poškodovano mesto.</li>
-			<li><input id="q5" type="text" name="q5" size="1" STYLE="background-color:{{ c5 }}" value="{{ q5 }}">Namestimo čvrst predmet na sterilno gazo za dodatno pomoč pri ustavljanju krvavitve.</li>
+			<li><input id="q4" type="text" name="q4" size="1" STYLE="background-color:{{ c4 }}" value="{{ q4 }}"> S povojem obvežemo predmet in gazo na poškodovano mesto.</li>
+			<li><input id="q5" type="text" name="q5" size="1" STYLE="background-color:{{ c5 }}" value="{{ q5 }}"> Namestimo čvrst predmet na sterilno gazo za dodatno pomoč pri ustavljanju krvavitve.</li>
 		</ul>
 	<input type="submit" value="preveri" style="width:25%;height:35px">
 	</form>

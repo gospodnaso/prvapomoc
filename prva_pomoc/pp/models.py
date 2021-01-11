@@ -25,7 +25,7 @@ class User(models.Model):
     beseda_kt7 = models.CharField(max_length=100, default="")
     sum_tocke = models.IntegerField(default=0)
     def __str__(self):
-        return (self.ime + ';'+self.vod+';'+self.hashh)
+        return (self.ime + ';'+self.vod)
     def cal_sum(self):
         out = 0
         out += self.tocke_kt1

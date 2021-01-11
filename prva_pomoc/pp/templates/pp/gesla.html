@@ -6,9 +6,9 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>mimobesede</title>
-	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+	<link href="{% static 'pp/css/brane.css' %}" rel="stylesheet" type="text/css" media="all"/>
   </head>
-  <body style="font-size:3vw">
+  <body>
 	  <p>ime: <u>{{ ime }}</u>
 	  <br>vod: <u>{{ vod }}</u></p>
 	<form action="/pp/gesla/" method="post">
@@ -20,12 +20,12 @@
 	</form>
 
 	<p>Zdravo, {{ ime }}!</p>
-	<p>Navodila so preprosta. Na spodnjih lokacijah po Ljubljani se nahajajo AED-ji, na njih (ali nekje v njihovi bližini) pa so gesla, ki jih vpišeš v zgornje okence in klikneš "požen". Stran te bo peljala do besedila in naloge, povezanih s prvo pomočjo. Ko nalogo rešiš, bo ocenjena in prispevala k skupnemu seštevku tvojega voda. Zmagovalni vod čaka nagrada.</p>
-	<img src="{% static 'pp/images/index1.jpg' %}" alt="slikca" style="width:100%">
+	<p>Navodila so preprosta. Na spodnjih lokacijah po Ljubljani se nahajajo AED-ji, na njih (ali nekje v njihovi bližini) pa so gesla, ki jih vpišeš v zgornje okence in klikneš "požen". Stran te bo peljala do besedila in naloge, povezanih s prvo pomočjo.<br><br>Ko nalogo rešiš, bo ocenjena in prispevala k skupnemu seštevku tvojega voda. Zmagovalni vod čaka nagrada!</p>
+	<img src="{% static 'pp/images/index1.jpg' %}" alt="slikca" style="max-width:100%">
 	<p><strong>Pozor! Achtung! Attenzione!</strong><br>
 	Pri vsaki nalogi se upošteva prvi rezultat. Stran ti omogoča, da popraviš svoje napake in ponovno preveriš rezultate, a za končni seštevek se bo upoštevala le prva rešitev.</p>
 	</p>
-	<p> Trenutne rezultate lahko najdeš na tej <a href = "../rezultati">povezavi</a>.</p>
+	<p> Trenutne rezultate lahko najdeš na tej <a href = "../rezultati?usr=true">povezavi</a>.</p>
 	<p> Morebitna vprašanja naslovite na <a href = "mailto: tinkara.kampjut@gmail.com?subject=morebitna vprašanja">tinkara.kampjut@gmail.com</a>.</p>
 	<p>Srečno!</p>
 

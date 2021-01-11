@@ -5,8 +5,8 @@
   <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>mimobesede</title>
-	<link href="{% static 'pp/css/main.css' %}" rel="stylesheet" type="text/css" media="all">
+    <title>zerulatti</title>
+	<link href="{% static 'pp/css/brane.css' %}" rel="stylesheet" type="text/css" media="all">
   </head>
 <body>
 
@@ -17,72 +17,76 @@
   </tr>
   <tr>
     <td>severni jeleni</td>
-	<td>{{ t0 }}</td>
+	<td>{{ t0 }} &#{{ c0 }};</td>
   </tr>
   <tr>
     <td>sokoli</td>
-    <td>{{ t1 }}</td>
+    <td>{{ t1 }} &#{{ c1 }};</td>
   </tr>
   <tr>
     <td>morske kozice</td>
-    <td>{{ t2 }}</td>
+    <td>{{ t2 }} &#{{ c2 }};</td>
   </tr>
   <tr>
     <td>tigrasti črvi</td>
-    <td>{{ t3 }}</td>
+    <td>{{ t3 }} &#{{ c3 }};</td>
   </tr>
   <tr>
     <td>snežni leopardi</td>
-    <td>{{ t4 }}</td>
+    <td>{{ t4 }} &#{{ c4 }};</td>
   </tr>
   <tr>
     <td>lenivci</td>
-    <td>{{ t5 }}</td>
+    <td>{{ t5 }} &#{{ c5 }};</td>
   </tr>
   <tr>
     <td>pume</td>
-    <td>{{ t6 }}</td>
+    <td>{{ t6 }} &#{{ c6 }};</td>
   </tr>
   <tr>
     <td>morske kače</td>
-    <td>{{ t7 }}</td>
+    <td>{{ t7 }} &#{{ c7 }};</td>
   </tr>
   <tr>
     <td>zmaji</td>
-    <td>{{ t8 }}</td>
+    <td>{{ t8 }} &#{{ c8 }};</td>
   </tr>
   <tr>
     <td>volkodlaki</td>
-    <td>{{ t9 }}</td>
+    <td>{{ t9 }} &#{{ c9 }};</td>
   </tr>
   <tr>
     <td>veverce</td>
-    <td>{{ t10 }}</td>
+    <td>{{ t10 }} &#{{ c10 }};</td>
   </tr>
   <tr>
     <td>bogomolke</td>
-    <td>{{ t11 }}</td>
+    <td>{{ t11 }} &#{{ c11 }};</td>
   </tr>
   <tr>
     <td>sove</td>
-    <td>{{ t12 }}</td>
+    <td>{{ t12 }} &#{{ c12 }};</td>
   </tr>
   <tr>
     <td>škorpijoni</td>
-    <td>{{ t13 }}</td>
+    <td>{{ t13 }} &#{{ c13 }};</td>
   </tr>
   <tr>
     <td>pujsi</td>
-    <td>{{ t14 }}</td>
+	<td>{{ t14 }} &#{{ c14 }};</td>
+  </tr>
+  <tr>
+    <td>dinozavri</td>
+	<td>{{ t15 }} &#{{ c15 }};</td>
   </tr>
 </table>
 	<br>
 	<hr>
-	<form action="../gesla/" method="post">
+	<form action="{{ dest }}" method="post">
 		{% csrf_token %}
 		<input type="hidden" name="ime" value="{{ ime }}">
 		<input type="hidden" name="vod" value="{{ vod }}">
-		<button href="../gesla" onclick="this.closest('form').submit();return false;" style="width:30%;height:40px"> NAZAJ </button>
+		<button href="{{ dest }}" onclick="this.closest('form').submit();return false;" style="width:30%;height:40px"> NAZAJ </button>
 	</form>
 
 </body>

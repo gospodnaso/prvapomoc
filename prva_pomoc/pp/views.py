@@ -10,7 +10,16 @@ def gesla(request):
     if request.method == 'POST':
         ime=request.POST.get('ime')
         vod=request.POST.get('vod')
-        if(ime != None and vod != None):
+        if(not ime.isalnum()):
+            return HttpResponseRedirect('/pp/')
+
+        sporocilo = get_messages(request)
+        sporocila = []
+        for s in sporocilo:
+            sporocila.append(s.message)
+        messages.add_message(request, messages.INFO, ime)
+        messages.add_message(request, messages.INFO, vod)
+        if(ime.isalnum()):
             try:
                 u = User(ime=ime, vod=vod, hashh=ime+vod)
                 u.save()
@@ -19,28 +28,27 @@ def gesla(request):
         else:
             return HttpResponseRedirect('/pp/')
             
-        sporocilo = get_messages(request)
-        for s in sporocilo:
-            pass
+#        sporocilo = get_messages(request)
+#        for s in sporocilo:
+#            pass
         form_geslo = GesloForm(request.POST)
-        messages.add_message(request, messages.INFO, ime)
-        messages.add_message(request, messages.INFO, vod)
+#        messages.add_message(request, messages.INFO, ime)
+#        messages.add_message(request, messages.INFO, vod)
         if form_geslo.is_valid():
             return HttpResponseRedirect('/pp/'+(request.POST.get('geslo')).lower())
         else:
             form_geslo = GesloForm()
-            context = {"ime": request.POST.get('ime'), "vod": request.POST.get('vod'), "form_geslo":form_geslo, };
+            context = {"ime": ime, "vod": vod, "form_geslo":form_geslo, };
     else:
         context = {}
         return HttpResponseRedirect('/pp/')
     return render(request, 'pp/gesla.html', context)
 
 def index(request):
-    if request.method == 'POST':
-        form_ime =  NameForm(request.POST)
-        form_vod = VodForm(request.POST)
-        if form_ime.is_valid() and form_vod.is_valid():
-            return HttpResponseRedirect('gesla')
+    form_ime =  NameForm(request.POST)
+    form_vod = VodForm(request.POST)
+    if form_ime.is_valid() and form_vod.is_valid():
+        return HttpResponseRedirect('gesla')
     else:
         form_ime = NameForm()
         form_vod = VodForm()
@@ -48,23 +56,44 @@ def index(request):
     return render(request, 'pp/index.html', {'form_ime': form_ime, 'form_vod': form_vod})
 
 def rezultati(request):
+    ime = ""
+    vod = ""
+    usr=request.GET.get('usr')
     sporocilo = get_messages(request)
     sporocila = []
     for s in sporocilo:
         sporocila.append(s.message)
-    messages.add_message(request, messages.INFO, sporocila[0])
-    messages.add_message(request, messages.INFO, sporocila[1])
-    vodi = ["severni jeleni", "sokoli", "morske kozice", "tigrasti črvi", "snežni leopardi", "lenivci", "pume", "morske kače", "zmaji", "volkodlaki", "veverce", "bogomolke", "sove", "škorpijoni", "pujsi"]
+    if(len(sporocila) >= 2):
+        ime = sporocila[0]
+        vod = sporocila[1]
 
-    tocke = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    if(usr == "true"):
+        dest = "../gesla/"
+    else:
+        dest = "../"
+
+    vodi = ["severni jeleni", "sokoli", "morske kozice", "tigrasti črvi", "snežni leopardi", "lenivci", "pume", "morske kače", "zmaji", "volkodlaki", "veverce", "bogomolke", "sove", "škorpijoni", "pujsi", "dinozavri"]
+    tocke = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    kronce = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
     for i in range(len(vodi)):
         usrs = User.objects.filter(vod=vodi[i])
         for usr in usrs:
             usr.sum_tocke = usr.cal_sum()
-            usr.save();
+            usr.save()
             tocke[i] += usr.sum_tocke
+    mx = 0
+    for i in range(len(vodi)):
+        if tocke[i] > mx:
+            mx = tocke[i]
+    najboljsi = []
+    for i in range(len(vodi)):
+        if tocke[i] == mx:
+            najboljsi.append(i)
+            kronce[i] = '128081'
+        else:
+            kronce[i] = '8203'
 
-    context = {"ime": sporocila[0], "vod": sporocila[1], "t0": tocke[0], "t1": tocke[1], "t2": tocke[2], "t3": tocke[3], "t4": tocke[4], "t5": tocke[5], "t6": tocke[6], "t7": tocke[7], "t8": tocke[8], "t9": tocke[9], "t10": tocke[10], "t11": tocke[11], "t12": tocke[12], "t13": tocke[13], "t14": tocke[14]}
+    context = {"ime": ime, "vod": vod, "dest": dest, "t0": tocke[0], "t1": tocke[1], "t2": tocke[2], "t3": tocke[3], "t4": tocke[4], "t5": tocke[5], "t6": tocke[6], "t7": tocke[7], "t8": tocke[8], "t9": tocke[9], "t10": tocke[10], "t11": tocke[11], "t12": tocke[12], "t13": tocke[13], "t14": tocke[14], "t15": tocke[15], "c0": kronce[0], "c1": kronce[1], "c2": kronce[2], "c3": kronce[3], "c4": kronce[4], "c5": kronce[5], "c6": kronce[6], "c7": kronce[7], "c8": kronce[8], "c9": kronce[9], "c10": kronce[10], "c11": kronce[11], "c12": kronce[12], "c13": kronce[13], "c14": kronce[14], "c15": kronce[15]} 
     return render(request, 'pp/rezultati.html', context)
 
 def snezinka(request):
@@ -110,13 +139,13 @@ def snezak(request):
                 usr.tocke_kt2 = out
                 usr.save()
     return render(request, 'pp/snezak.html', context)
+
 def jelencek(request):
     out = 0
     sporocilo = get_messages(request)
     sporocila = []
     for s in sporocilo:
         sporocila.append(s.message)
- 
     messages.add_message(request, messages.INFO, sporocila[0])
     messages.add_message(request, messages.INFO, sporocila[1])
     context={"q1": '', "q2": '', "q3": '', "q4": '', "ime": sporocila[0], "vod": sporocila[1]}
@@ -221,27 +250,27 @@ def kraguljcki(request):
     if request.method == 'POST':
         context = {"q1":request.POST.get('q1'), "q2":request.POST.get('q2'), "q3":request.POST.get('q3'), "q4":request.POST.get('q4'), "q5":request.POST.get('q5'), "ime": sporocila[0], "vod": sporocila[1]}
         if(context["q1"] != '' or context["q2"] != '' or context["q3"] != '' or context["q4"] != '' or context["q5"]):
-            if(context["q1"] == "1"):
+            if("1" in context["q1"]):
                 context["c1"] = "#99ff99"
                 out += 1
             else:
                 context["c1"] = "#ff5050"
-            if(context["q2"] == "4"):
+            if("4" in context["q2"]):
                 context["c2"] = "#99ff99"
                 out += 1
             else:
                 context["c2"] = "#ff5050"
-            if(context["q3"] == "5"):
+            if("5" in context["q3"]):
                 context["c3"] = "#99ff99"
                 out += 1
             else:
                 context["c3"] = "#ff5050"
-            if(context["q4"] == "3"):
+            if("3" in context["q4"]):
                 context["c4"] = "#99ff99"
                 out += 1
             else:
                 context["c4"] = "#ff5050"
-            if(context["q5"] == "2"):
+            if("2" in context["q5"]):
                 context["c5"] = "#99ff99"
                 out += 1
             else:
